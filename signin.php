@@ -6,11 +6,10 @@ if (isset($_POST['btnsignin'])) {
 
     //Lấy dữ liệu nhập vào
     $username = $_POST['txtUserName'];
-    // $password = $_POST['txtPassword'];
-    $password = 1;
+    $password = $_POST['txtPassword'];
 
     //Kiểm tra tên đăng nhập có tồn tại không
-    $result = pg_query($conn, "SELECT acc_name, password,state FROM public.account WHERE acc_name='{$username}'");
+    $result = pg_query($conn, "SELECT 'acc_name', 'password', 'state' FROM public.account WHERE acc_name='{$username}'");
     if (pg_num_rows($result) == 0) {
         echo "Tên đăng nhập này không tồn tại. Vui lòng kiểm tra lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
