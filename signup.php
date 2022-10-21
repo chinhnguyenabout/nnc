@@ -12,7 +12,7 @@ if (isset($_POST['signup'])) {
     $err="";
     $username   = $_POST['txtUsername'];
     
-    $query = pg_query($conn,"SELECT acc_Name FROM account WHERE acc_Name='{$username}'");
+    $query = pg_query($conn,"SELECT acc_name FROM account WHERE acc_name='{$username}'");
     if (pg_num_rows($query) == 1){
       echo "<script>alert('Username already exists!')</script>";
       echo '<meta http-equiv="refresh" content="0;URL=?page=signup"/>';
@@ -24,7 +24,7 @@ if (isset($_POST['signup'])) {
     if($err!=""){
         echo $err;
     }else{
-        $result = pg_query($conn, "INSERT INTO account(acc_name,Password,fullname,gender,email,Address,State) VALUES ('{$username}','{$password}','{$fullname}','{$gender}','{$email}','{$address}',0)");
+        $result = pg_query($conn, "INSERT INTO account(acc_name,password,fullname,gender,email,address,state) VALUES ('{$username}','{$password}','{$fullname}','{$gender}','{$email}','{$address}',0)");
 
         if ($result) {
             echo "Quá trình đăng ký thành công.";
