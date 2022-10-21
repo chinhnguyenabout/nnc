@@ -18,14 +18,14 @@ if (isset($_POST['btnsignin'])) {
     $row = pg_fetch_array($result);
 
     //So sánh 2 mật khẩu có trùng khớp hay không
-    if ($password != $row['Password']) {
+    if ($password != $row['password']) {
         echo "Mật khẩu không đúng. Vui lòng nhập lại. <a href='javascript: history.go(-1)'>Trở lại</a>";
         exit;
     }
 
     if (pg_num_rows($result) == 1) {
         $_SESSION["us"] = $username;
-        $_SESSION["admin"] = $row['State'];
+        $_SESSION["admin"] = $row['state'];
         echo "thanh cong";
         echo '<meta http-equiv="refresh" content="0;URL=?page=index.php"/>';
     } else {
