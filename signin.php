@@ -6,7 +6,8 @@ if (isset($_POST['btnsignin'])) {
 
     //Lấy dữ liệu nhập vào
     $username = $_POST['txtUserName'];
-    $password = $_POST['txtPassword'];
+    // $password = $_POST['txtPassword'];
+    $password = 1;
 
     //Kiểm tra tên đăng nhập có tồn tại không
     $result = pg_query($conn, "SELECT acc_name, password,state FROM public.account WHERE acc_name='{$username}'");
