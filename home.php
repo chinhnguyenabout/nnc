@@ -46,7 +46,7 @@ include_once("./connect.php");
       <div class="row">
         <?php
         $result = pg_query($conn, "Select * from shoe ORDER BY Shoe_Name LIMIT 4 ");
-        while ($row = pg_fetch_array($result)) {
+        while ($row = pg_fetch_assoc($result)) {
         ?>
           <div class="col-md-3 col-sm-6 col-xs-6 col-6">
             <div class="product-block">
